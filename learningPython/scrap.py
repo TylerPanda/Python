@@ -30,6 +30,7 @@ while( page < 1000):
         information = "{title}\n{address}\n{phone}\n".format(title = title, address = first_line + second_line, phone = phone);
         print(information);
     page += 10;
+    
     # print(title);
     # address = biz.findAll("address")[0].getText().replace(" ", "");
     # print(address);
