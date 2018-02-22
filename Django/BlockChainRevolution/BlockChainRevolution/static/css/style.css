@@ -1,0 +1,16 @@
+body {
+    background-color: #272728;
+}
+
+nav ul li{
+  display: inline;
+  list-style: none;
+}
+
+h1 {
+  color: #d0d0d0;
+}
+
+p {
+  color: 	#FFFFFF;
+}
