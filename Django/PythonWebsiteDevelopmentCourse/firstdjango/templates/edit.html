@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}<title>資料表修改</title>{% endblock %}
+{% block content %}
+    <h2>student 資料表修改</h2>
+    <form action = "/edit/{{ unit.id }}"/edit method = "GET" name = "formal" >
+      <table border = "1" cellspacing = "1" cellpadding = "4">
+        <tr>
+          <th>姓名</th>
+          <td><input type = "text" id = "cName" name = "cName" value = "{{ unit.cName }}" /></td>
+        </tr>
+
+        <tr>
+          <th>姓名 {{ unit.cGender }} </th>
+          {% if unit.cGender == "M" %}
+          <td>
+            <input name = "cGender" type = "radio" id = "cGender1" value = "M" checked = "checked" />男生
+            <input name = "cGender" type = "radio" id = "cGender2" value = "F" />女生
+          </td>
+          {% else %}
+          <td>
+            <input name = "cGender" type = "radio" id = "cGender1" value = "M"  />男生
+            <input name = "cGender" type = "radio" id = "cGender2" value = "F" checked = "checked" />女生
+          </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          <th>生日</th>
+          <td>
+            <input type = "text" id = "cBirthday" name = "cBirthday" value = {{ unit.cBirthday }} />
+          </td>
+        </tr>
+
+        <tr>
+          <th>電話</th>
+          <td>
+            <input type = "text" id = "cPhone" name = "cPhone" value = {{ unit.cPhone }} />
+          </td>
+        </tr>
+
+        <tr>
+          <th>地址</th>
+          <td>
+            <input type = "text" id = "cAddr" name = "cAddr" value = {{ unit.cAddr }} />
+          </td>
+        </tr>
+
+        <tr>
+          <th colspan = "2" align = "center">
+            <input type = "submit" name = "button" id = "button" value = "送出" />
+            <input type = "reset" name = "button2" id = "buttom2" value = "重設" />
+          </th>
+        </tr>
+      </table>
+      <span style = "color:red">{{ message }}</span>
+    </form>
+{% endblock %}
