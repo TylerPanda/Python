@@ -1,0 +1,37 @@
+<form action = "." method = "POST" name = "formal">
+  {% csrf_token %}
+  <table border = "1" cellspacing = "1" cellpadding = "4">
+    <tr>
+      <th>姓名：</th>
+      <td>{{postform.cName}}</td>
+    </tr>
+
+    <tr>
+      <th>性別：</th>
+      <td>
+        <input name = "cGender" type = "radio" id = "cGender1" value = "M" checked = "checked" />男生
+        <input name = "cGender" type = "radio" id = "cGender2" value = "F" checked = "checked" />女生
+      </td>
+    </tr>
+
+    <tr>
+      <th>生日</th>
+      <td>{{postform.cBirthday}}</td>
+    </tr>
+
+    <tr>
+      <th>郵件帳號</th>
+      <td>{{postform.cEmail}}</td>
+    </tr>
+
+    <tr>
+      <th>電話</th>
+      <td>{{postform.cPhone}}</td>
+    </tr>
+
+    <tr>
+      <th>地址</th>
+      <td>{{postform.cAddr}}</td>
+    </tr>
+  </table>
+</form>
