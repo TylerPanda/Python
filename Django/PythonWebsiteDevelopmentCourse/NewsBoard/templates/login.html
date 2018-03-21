@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block login %}
+<div class = "toplogin">
+  <a href = "/login/" title = "登入管理介面"><img src = "{% static "images/Lock.png" %}" alt = "登入管理介面" width = "32" height = "32"</a>
+</div>
+{% endblock %}
+{% block content %}
+<form action = "." method = "POST" id = "loginform">
+  {% csrf_token %}
+  <div class = "fields">
+    <p class = "sep">
+      <label class = "small" for = "username">管理者帳號</label>
+      <input name = "username" type = "text" id = "username" required />
+    </p>
+    <p class = "sep">
+      <label class = "small" for = "password">管理者密碼</label>
+      <input name = "password" type = "password" id = "password" required />
+    </p>
+    <div class = "action">
+      <input type = "submit" class = "button" value = "登入系統" />
+      <input name = "button1" type = "button" value = "返回首頁" onclick = "window.location = '/index/'" />
+    </div>
+    <span style = "color : red">{{ messages }}</span>
+  </div>
+</form>
+
+{% endblock %}
