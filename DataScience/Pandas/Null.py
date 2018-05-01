@@ -1,0 +1,66 @@
+import numpy as np
+import pandas as pd
+import time
+
+vals1 = np.array([1, None, 3, 4])
+print("vals1 = ", vals1)
+
+for dtype in ["object", "int"]:
+    tStart = time.time()
+    print("dtype = ", dtype)
+    tEnd = time.time()
+    print(tStart - tEnd)
+
+data = pd.Series([1, np.nan, "hello", None])
+print("data.isnull() = ")
+print(data.isnull())
+print("data.notnull() = ")
+print(data.notnull())
+print("data[data.notnull()] = ")
+print(data[data.notnull()])
+print("data.dropna() = ")
+print(data.dropna())
+
+df = pd.DataFrame([[1     , np.nan, 2],
+                   [2     , 3,      5],
+                   [np.nan, 4,      6]])
+print("df = ")
+print(df)
+print("df.dropna() = ")
+print(df.dropna())
+print("df.dropna(axis = 'columns') = ")
+print(df.dropna(axis = 'columns'))
+df[3] = np.nan
+print("df = ")
+print(df)
+print("df.dropna() = ")
+print(df.dropna())
+print("df.dropna(axis = 'columns', how = 'any') = ")
+print(df.dropna(axis = 'columns', how = 'any'))
+print("df.dropna(axis = 'columns', how = 'all') = ")
+print(df.dropna(axis = 'columns', how = 'all'))
+print("df.dropna(axis = 'rows', thresh = 3) = ")
+print(df.dropna(axis = 'rows', thresh = 3))
+print("df.dropna(axis = 'columns', thresh = 3) = ")
+print(df.dropna(axis = 'columns', thresh = 3))
+
+data = pd.Series([1, np.nan, 2, None, 3], index = list("abcde"))
+print("data = ")
+print(data)
+print("data.fillna(0) = ")
+print(data.fillna(0))
+print("data.fillna(method = 'ffill') = ")
+print(data.fillna(method = 'ffill'))
+print("data.fillna(method = 'bfill') = ")
+print(data.fillna(method = 'bfill'))
+print()
+print("df = ")
+print(df)
+print("df.fillna(method = 'ffill', axis = 1) = ")
+print(df.fillna(method = 'ffill', axis = 1))
+print("df.fillna(method = 'bfill', axis = 1) = ")
+print(df.fillna(method = 'bfill', axis = 1))
+print("df.fillna(method = 'ffill', axis = 0) = ")
+print(df.fillna(method = 'ffill', axis = 0))
+print("df.filllna(method = 'bfill', axis = 0) = ")
+print(df.fillna(method = 'bfill', axis = 0))
